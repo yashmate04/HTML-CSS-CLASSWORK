@@ -1,1 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-LearnHub | Quiz</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #34495e;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #1abc9c;
+        }
+
+        .progress {
+            width: 100%;
+            background: #dfe6e9;
+            height: 10px;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            /* Demo static progress */
+            height: 100%;
+            background: linear-gradient(90deg, #1abc9c, #16a085);
+            border-radius: 5px;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .quiz-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .instructions {
+            background: #ecf0f1;
+            border-left: 5px solid #1abc9c;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        form {
+            display: grid;
+            gap: 20px;
+        }
+
+        .question-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.8s ease;
+        }
+
+        .question-card h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .options label {
+            display: block;
+            background: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .options label:hover {
+            border-color: #1abc9c;
+            background: #ecfefb;
+        }
+
+        .options input[type="radio"] {
+            display: none;
+        }
+
+        .options input[type="radio"]:checked+span {
+            background: #1abc9c;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .options span {
+            margin-left: 10px;
+        }
+
+        .submit-btn {
+            padding: 14px;
+            background: #1abc9c;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .submit-btn:hover {
+            background: #16a085;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-left: 5px solid #2c3e50;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 10px;
+            margin-top: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .quiz-title {
+                font-size: 1.5rem;
+            }
+
+            nav {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>E-LearnHub</header>
+    <nav>
+        <a href="./demo1.html">Home</a>
+        <a href="./demo2.html">Courses</a>
+        <a href="./demo3.html">Quiz</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="progress"></div>
+
+    <main>
+        <h1 class="quiz-title">HTML & CSS Fundamentals Quiz</h1>
+
+        <div class="instructions">
+            📌 Read each question carefully and select the correct option. Click "Submit Quiz" when done.
+        </div>
+
+        <form>
+            <!-- Q1 -->
+            <div class="question-card">
+                <h3>A. Which tag is used for the largest heading in HTML?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q1"><span>&lt;h1&gt;</span></label>
+                    <label><input type="radio" name="q1"><span>&lt;h6&gt;</span></label>
+                    <label><input type="radio" name="q1"><span>&lt;header&gt;</span></label>
+                    <label><input type="radio" name="q1"><span>&lt;p&gt;</span></label>
+                </div>
+            </div>
+
+            <!-- Q2 -->
+            <div class="question-card">
+                <h3>B. Which property is used to change text color in CSS?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q2"><span>font-style</span></label>
+                    <label><input type="radio" name="q2"><span>color</span></label>
+                    <label><input type="radio" name="q2"><span>text-decoration</span></label>
+                    <label><input type="radio" name="q2"><span>background</span></label>
+                </div>
+            </div>
+
+            <!-- Q3 -->
+            <div class="question-card">
+                <h3>C. Which attribute is used to add a link in HTML?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q3"><span>src</span></label>
+                    <label><input type="radio" name="q3"><span>href</span></label>
+                    <label><input type="radio" name="q3"><span>alt</span></label>
+                    <label><input type="radio" name="q3"><span>title</span></label>
+                </div>
+            </div>
+
+            <!-- Q4 -->
+            <div class="question-card">
+                <h3>D. Which CSS property is used to create space inside an element?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q4"><span>margin</span></label>
+                    <label><input type="radio" name="q4"><span>padding</span></label>
+                    <label><input type="radio" name="q4"><span>border</span></label>
+                    <label><input type="radio" name="q4"><span>outline</span></label>
+                </div>
+            </div>
+
+            <!-- Q5 -->
+            <div class="question-card">
+                <h3>E. Which tag is used to insert an image in HTML?</h3>
+                <div class="options">
+                    <label><input type="radio" name="q5"><span>&lt;picture&gt;</span></label>
+                    <label><input type="radio" name="q5"><span>&lt;src&gt;</span></label>
+                    <label><input type="radio" name="q5"><span>&lt;img&gt;</span></label>
+                    <label><input type="radio" name="q5"><span>&lt;image&gt;</span></label>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Quiz</button>
+        </form>
+
+        <div class="result-box">⚡ Result will be shown here after submission.</div>
+    </main>
+
+    <footer>© 2025 E-LearnHub. All Rights Reserved.</footer>
+</body>
+
+</html>
