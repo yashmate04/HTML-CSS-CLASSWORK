@@ -1,1 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-LearnHub | Courses</title>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Inter", sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: #2c3e50;
+            color: #fff;
+            padding: 15px 20px;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #34495e;
+        }
+
+        nav a {
+            color: #fff;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        nav a:hover {
+            background: #1abc9c;
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .page-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, box-shadow 0.3s;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-card img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .course-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .course-content h3 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .course-content p {
+            flex: 1;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .enroll-btn {
+            align-self: flex-start;
+            padding: 10px 16px;
+            background: #1abc9c;
+            color: #fff;
+            font-weight: 600;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+            text-decoration: none;
+        }
+
+        .enroll-btn:hover {
+            background: #16a085;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 15px 10px;
+            margin-top: auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>E-LearnHub</header>
+    <nav>
+        <a href="./demo1.html">Home</a>
+        <a href="./demo2.html">Courses</a>
+        <a href="quiz.html">Quiz</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <h1 class="page-title">Available Courses</h1>
+        <div class="courses-grid">
+            <!-- Course 1 -->
+            <div class="course-card">
+                <img src="./Image/Htmlcss.png" alt="HTML Course">
+                <div class="course-content">
+                    <h3>HTML Basics</h3>
+                    <p>Learn the foundation of web development by mastering HTML elements, attributes, and structure.
+                    </p>
+                    <a href="#" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- Course 2 -->
+            <div class="course-card">
+                <img src="./Image/CSS.png" alt="CSS Course">
+                <div class="course-content">
+                    <h3>CSS Fundamentals</h3>
+                    <p>Style your web pages beautifully with CSS properties, selectors, and responsive layouts.</p>
+                    <a href="#" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- Course 3 -->
+            <div class="course-card">
+                <img src="./Image/Javascript.png" alt="JavaScript Course">
+                <div class="course-content">
+                    <h3>JavaScript for Beginners</h3>
+                    <p>Bring your websites to life with JavaScript basics: variables, functions, and DOM manipulation.
+                    </p>
+                    <a href="#" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- Course 4 -->
+            <div class="course-card">
+                <img src="./Image/Python.png" alt="Python Course">
+                <div class="course-content">
+                    <h3>Python Programming</h3>
+                    <p>Start coding in Python  one of the most popular programming languages for AI and web apps.</p>
+                    <a href="#" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+
+            <!-- Course 5 -->
+            <div class="course-card">
+                <img src="./Image/SQL.png" alt="SQL Course">
+                <div class="course-content">
+                    <h3>SQL & Databases</h3>
+                    <p>Learn how to create, query, and manage databases using SQL commands and real-world examples.</p>
+                    <a href="#" class="enroll-btn">Enroll</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>© 2025 E-LearnHub. All Rights Reserved.</footer>
+</body>
+
+</html>
