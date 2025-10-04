@@ -1,1 +1,191 @@
 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — Giftify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+:root {
+  --primary-color: #f76c6c;
+  --secondary-color: #ffffff;
+  --text-color: #333333;
+  --bg-color: #fafafa;
+  --hover-color: #e05555;
+  --nav-gradient: linear-gradient(90deg, #f76c6c, #ffab66);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  background: var(--nav-gradient);
+  color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul.nav-links li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+  background-color: var(--hover-color);
+  border-radius: 4px;
+}
+
+/* responsive nav */
+@media (max-width: 600px) {
+  nav ul.nav-links {
+    flex-direction: column;
+    width: 100%;
+    background: var(--nav-gradient);
+  }
+  nav ul.nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main p {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+form {
+  margin-top: 1.5rem;
+}
+
+form label {
+  display: block;
+  margin-top: 1rem;
+  margin-bottom: 0.3rem;
+}
+
+form input[type="text"], 
+form textarea {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+form button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: var(--hover-color);
+}
+
+/* ========== Footer ========== */
+footer {
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: auto;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+</style>
+
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Giftify  Your E-Gift Shop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="./Home.html">Home</a></li>
+                    <li><a href="./Product.html">Products</a></li>
+                    <li><a href="./Offers.html">Offers</a></li>
+                    <li><a href="./Cart.html">Cart</a></li>
+                    <li><a href="./Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Contact Us</h2>
+        <p>Email: contact@giftify.com</p>
+        <p>Phone: +91-9876543210</p>
+        <form action="#" aria-label="Contact form">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="4"></textarea><br><br>
+            <button type="submit">Send</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Giftify</p>
+    </footer>
+</body>
+
+</html>
