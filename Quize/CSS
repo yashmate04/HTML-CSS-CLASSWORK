@@ -1,1 +1,642 @@
+/* ========== E — CSS Variables & Base Setup ========== */
+/* Task E4 & global styles */
+/* Hero */
+.hero {
+    position: relative;
+    background: url('../Images/Homepage.png') no-repeat center/cover;
+    height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+:root {
+    --primary-color: #6cf775;
+    --secondary-color: #ffffff;
+    --accent-color: #aaff33;
+    --text-color: #0aa7eb;
+    --bg-color: #fafafa;
+    --hover-color: #e05555;
+    --nav-gradient: linear-gradient(90deg, #f76c6c, #ffab66);
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+body {
+    font-family: 'Roboto', sans-serif;
+    /* Task E3 */
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+}
+
+/* ========== Header & Nav ========== */
+header {
+    background: var(--nav-gradient);
+    /* Task E2 */
+    color: var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul.nav-links li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+    background-color: var(--hover-color);
+    border-radius: 4px;
+}
+
+/* Task E7: on narrow screens, stack nav vertically */
+@media (max-width: 600px) {
+    nav ul.nav-links {
+        flex-direction: column;
+        background: var(--nav-gradient);
+        width: 100%;
+    }
+
+    nav ul.nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ========== Hero Section ========== */
+.hero {
+    position: relative;
+    height: 50vh;
+    min-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    /* optional gradient overlay */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hero-text {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    opacity: 0;
+    animation: fadeIn 1.5s forwards;
+    /* Task E5 */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsive hero text (Task A10) */
+@media (max-width: 900px) {
+    .hero-text {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-text {
+        font-size: 1.5rem;
+    }
+}
+
+/* ========== Layout for main + sidebar ========== */
+.content-with-sidebar {
+    display: flex;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* The main content (product section) expands; sidebar fixed width */
+.featured-gifts {
+    flex: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+    /* so it stays visible when scrolling (Task C7) */
+    align-self: start;
+}
+
+@media (max-width: 900px) {
+    .content-with-sidebar {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+    }
+}
+
+/* ========== Products Section ========== */
+/* Task B2: grid layout for 4 products in a row */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Task E8: grid becomes 2 columns on medium screens */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Task B8: 1 column on mobile */
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.product-card {
+    background: var(--secondary-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* for hover lift-up */
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    /* Task E6 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    max-height: 180px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    /* Task B5 */
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 0.8rem 0 0.4rem;
+}
+
+.product-card .price {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.product-card button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Task B6 */
+}
+
+.product-card button:hover {
+    background-color: var(--hover-color);
+}
+
+/* (Optional) Flexbox alternative layout (Task B7) */
+/* You could also do:
+.featured-gifts .product-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.featured-gifts .product-card {
+    flex: 0 1 calc(25% - 1rem);
+    margin-bottom: 1.5rem;
+}
+*/
+
+/* ========== Sidebar & Offers (Section C) ========== */
+
+.sidebar h2 {
+    font-style: italic;
+    /* Task C10 */
+    margin-bottom: 1rem;
+}
+
+.offer-card {
+    background-color: #ffe9c4;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+    /* Task C6 */
+}
+
+.offer-card:hover {
+    background-color: #ffdf99;
+}
+
+.festival-banner {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* ========== Footer & Contact (Section D) ========== */
+
+footer {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem 1rem;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-links a,
+.social-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.contact-info p {
+    margin: 1rem 0;
+}
+
+.newsletter form {
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.newsletter input[type="email"] {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    margin-right: 0.5rem;
+    width: 200px;
+    max-width: 100%;
+}
+
+.newsletter button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* Task D6 */
+}
+
+.newsletter button:hover {
+    background-color: var(--hover-color);
+}
+
+.footer-bottom p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+
+:root {
+    --primary-color: #f76c6c;
+    --secondary-color: #ffffff;
+    --accent-color: #ffcf33;
+    --text-color: #333333;
+    --bg-color: #fafafa;
+    --hover-color: #e05555;
+    --nav-gradient: linear-gradient(90deg, #f76c6c, #ffab66);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background: var(--nav-gradient);
+    color: var(--secondary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-inner {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+header h1 {
+    font-size: 1.8rem;
+}
+
+nav ul.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+nav ul.nav-links li a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+    background-color: var(--hover-color);
+    border-radius: 4px;
+}
+
+/* Responsive stacking of nav on small screens */
+@media (max-width: 600px) {
+    nav ul.nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul.nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+main {
+    flex: 1;
+    padding: 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: var(--text-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: auto;
+}
+
+.footer-links a,
+.social-links a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    margin: 0 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.contact-info p {
+    margin: 1rem 0;
+}
+
+.newsletter form {
+    display: inline-block;
+    margin: 1rem 0;
+}
+
+.newsletter input[type="email"] {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: none;
+    margin-right: 0.5rem;
+    width: 200px;
+    max-width: 100%;
+}
+
+.newsletter button {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 20px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.newsletter button:hover {
+    background-color: var(--hover-color);
+}
+
+.footer-bottom p {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ========== Page-specific / Shared Component Styles ========== */
+
+/* For pages that show product cards (e.g. Products page) */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Product card style */
+.product-card {
+    background: var(--secondary-color);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.05);
+}
+
+.product-card h3 {
+    margin: 0.8rem 0 0.4rem;
+}
+
+.product-card .price {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+}
+
+.product-card button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.product-card button:hover {
+    background-color: var(--hover-color);
+}
+
+/* Offers / Sidebar style (used on Offers page or in sidebar) */
+.offer-card {
+    background-color: #ffe9c4;
+    border-radius: 6px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.offer-card:hover {
+    background-color: #ffdf99;
+}
+
+.festival-banner {
+    background-color: var(--accent-color);
+    padding: 1rem;
+    border-radius: 6px;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Contact form style (used on Contact page) */
+form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 0.6rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+}
