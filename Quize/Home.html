@@ -1,1 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home — Giftify</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    /* ========== Variables & Base Reset ========== */
+:root {
+  --primary-color: #f76c6c;
+  --secondary-color: #ffffff;
+  --text-color: #333333;
+  --bg-color: #fafafa;
+  --hover-color: #e05555;
+  --nav-gradient: linear-gradient(90deg, #f76c6c, #ffab66);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ========== Header & Navigation ========== */
+header {
+  background: var(--nav-gradient);
+  color: var(--secondary-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+header h1 {
+  font-size: 1.8rem;
+}
+
+/* Navigation */
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+nav ul.nav-links li a {
+  text-decoration: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s ease;
+}
+
+nav ul.nav-links li a:hover {
+  background-color: var(--hover-color);
+  border-radius: 4px;
+}
+
+/* Responsive nav on small screens */
+@media (max-width: 600px) {
+  nav ul.nav-links {
+    flex-direction: column;
+    width: 100%;
+    background: var(--nav-gradient);
+  }
+  nav ul.nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ========== Main Content ========== */
+main {
+  flex: 1;  /* ensures footer stays at bottom if content is short */
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+main h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+main p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* ========== Footer ========== */
+footer {
+  background-color: var(--text-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 1.5rem 1rem;
+  margin-top: auto;
+}
+
+footer p {
+  font-size: 0.9rem;
+}
+
+</style>
+<body>
+    <header>
+        <div class="header-inner">
+            <h1>Giftify  Your E-Gift Shop</h1>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="offers.html">Offers</a></li>
+                    <li><a href="cart.html">Cart</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <h2>Welcome to Giftify!</h2>
+        <p>This is the homepage content.</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Giftify</p>
+    </footer>
+</body>
+
+</html>
